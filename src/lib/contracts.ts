@@ -1,4 +1,4 @@
-export function getBridgeAddress(chainId: number | undefined) {
+export function getBridgeAddress(chainId: number | undefined): `0x${string}` {
   if (chainId === 5) {
     return '0xe93c8cD0D409341205A592f8c4Ac1A5fe5585cfA'
   } else {

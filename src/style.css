@@ -23,6 +23,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 1rem;
+}
+
+button {
+  width: fit-content;
 }
 
 .network-toggle {
@@ -49,4 +54,10 @@ main {
   border: none;
   outline: none;
   background-color: transparent;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
