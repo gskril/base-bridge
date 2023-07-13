@@ -19,6 +19,12 @@ body {
   line-height: 1.5;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .network-toggle {
   display: flex;
   gap: 0.5rem;
@@ -26,4 +32,21 @@ body {
 
 .network-toggle .light {
   color: var(--light);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+  border: 0.125rem solid var(--text);
+}
+
+.input-wrapper input {
+  width: 3.75rem;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
