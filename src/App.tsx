@@ -21,7 +21,7 @@ export default function App() {
   const { openConnectModal } = useConnectModal()
   const { disconnect } = useDisconnect()
 
-  const [isTestnet, setIsTestnet] = useState(true)
+  const [isTestnet, setIsTestnet] = useState(false)
   const [amountEth, setAmountEth] = useState<string>('0.1')
   const debouncedEth = useDebounce(amountEth, 500)
   const numberRegex = /^\d*\.?\d*$/
