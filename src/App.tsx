@@ -22,7 +22,7 @@ export default function App() {
   const { disconnect } = useDisconnect()
 
   const [isTestnet, setIsTestnet] = useState(false)
-  const [amountEth, setAmountEth] = useState<string>('0.1')
+  const [amountEth, setAmountEth] = useState<string>('')
   const debouncedEth = useDebounce(amountEth, 500)
   const numberRegex = /^\d*\.?\d*$/
   const isEthValueValid =
@@ -50,29 +50,34 @@ export default function App() {
       {!isTestnet && <p>⚠︎ Mainnet is new. Continue at your own risk ⚠︎</p>}
 
       <main>
-        <ConnectButton />
-
         <div className="network-toggle">
-          <button
-            onClick={() => {
+          <label htmlFor="mainnet">Mainnet</label>
+          <input
+            type="radio"
+            name="network"
+            value="mainnet"
+            id="mainnet"
+            defaultChecked={!isTestnet}
+            onChange={() => {
               // switch to homestead if not already on homestead
               if (chain?.id !== 1) switchToHomestead.switchNetwork?.()
               setIsTestnet(false)
             }}
-            className={isTestnet ? 'light' : ''}
-          >
-            Mainnet
-          </button>
-          <button
-            onClick={() => {
+          />
+
+          <label htmlFor="goerli">Goerli</label>
+          <input
+            type="radio"
+            name="network"
+            value="goerli"
+            id="goerli"
+            defaultChecked={isTestnet}
+            onChange={() => {
               // switch to goerli if not already on goerli
               if (chain?.id !== 5) switchToGoerli.switchNetwork?.()
               setIsTestnet(true)
             }}
-            className={isTestnet ? '' : 'light'}
-          >
-            Testnet
-          </button>
+          />
         </div>
 
         <div className="input-group">
@@ -133,7 +138,11 @@ export default function App() {
                     />
                   </div>
 
-                  {!isEthValueValid && <p>Invalid ETH amount</p>}
+                  {Number(debouncedEth) === 0 ? (
+                    <p>Enter a number</p>
+                  ) : !isEthValueValid ? (
+                    <p>Invalid ETH amount</p>
+                  ) : null}
 
                   <button
                     className="button"

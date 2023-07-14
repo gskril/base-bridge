@@ -35,10 +35,6 @@ button {
   gap: 0.5rem;
 }
 
-.network-toggle .light {
-  color: var(--light);
-}
-
 .input-wrapper {
   display: flex;
   align-items: center;
