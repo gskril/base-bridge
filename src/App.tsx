@@ -1,4 +1,4 @@
-import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit'
+import { useConnectModal } from '@rainbow-me/rainbowkit'
 import { getBridgeAddress } from './lib/contracts'
 import {
   useAccount,
